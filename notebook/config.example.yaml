@@ -1,0 +1,169 @@
+# Privacy Service Configuration Example
+# =====================================
+# Copy this file to config.yaml and customize for your needs
+#
+# Usage:
+#   from privacy_service import PrivacyService
+#   service = PrivacyService(config="config.yaml")
+
+# Recognizer Configuration
+# -------------------------
+# Controls which PII detection recognizers are enabled
+recognizers:
+  # Enable ai4privacy library for state-of-the-art PII detection
+  # Default: true
+  use_ai4privacy: true
+
+  # Enable Presidio's default recognizers (email, phone, SSN, etc.)
+  # These are rule-based and work alongside ai4privacy
+  # Default: true
+  use_presidio_defaults: true
+
+  # Enable spaCy NLP engine for better NER
+  # Default: true
+  use_spacy_nlp: true
+
+  spacy_nlp_model:
+    - lang_code: fr
+      model_name: fr_core_news_lg
+    - lang_code: en
+      model_name: en_core_web_lg
+
+  # AI4Privacy Settings
+  # -------------------
+  ai4privacy:
+    # Confidence threshold for PII detection (0.0 to 1.0)
+    # Lower values = more detections but potentially more false positives
+    # Higher values = fewer detections but higher precision
+    # Default: 0.01 (ai4privacy uses lower thresholds)
+    # Recommended: 0.01 for most use cases, increase to 0.05-0.1 to reduce false positives
+    confidence_threshold: 0.00001
+
+    # Classify PII into specific types (EMAIL, PERSON, PHONE, etc.)
+    # true: Detailed PII classification (recommended)
+    # false: Generic "PRIVATE" label for all PII
+    # Default: true
+    classify_pii: true
+
+# Anonymization Configuration
+# ----------------------------
+# Controls how PII is replaced/hidden in text
+anonymization:
+  # Default strategy for all entity types
+  # Options: replace, mask, redact, hash, encrypt
+  # Default: replace
+  default_strategy: replace
+
+  # Per-entity-type strategies
+  # Override the default strategy for specific entity types
+  # If not specified, default_strategy is used
+  strategies:
+    # Email addresses - hash them for consistency while hiding actual values
+    # EMAIL_ADDRESS: hash
+
+    # # Phone numbers - mask with asterisks
+    # PHONE_NUMBER: mask
+
+    # # Person names - replace with placeholder
+    # PERSON: replace
+
+    # # Organization names - replace with placeholder
+    # ORGANIZATION: replace
+
+    # # Locations - replace with placeholder
+    # LOCATION: replace
+
+    # # Credit card numbers - redact completely
+    # CREDIT_CARD: redact
+
+    # # Social security numbers - redact completely
+    # US_SSN: redact
+
+    # # IP addresses - hash for consistency
+    # IP_ADDRESS: hash
+
+    # Uncomment and customize for other entity types:
+    # DATE_TIME: replace
+    # IBAN_CODE: redact
+    # URL: replace
+
+# Strategy Descriptions:
+# ----------------------
+# replace: Replace with [ENTITY_TYPE] placeholder
+#   Example: john@example.com → [EMAIL_ADDRESS]
+#
+# mask: Replace with asterisks (same length as original)
+#   Example: john@example.com → *****************
+#
+# redact: Remove completely (empty string)
+#   Example: john@example.com →
+#
+# hash: SHA-256 hash (consistent for same input, irreversible)
+#   Example: john@example.com → a3f5d8e2b1c4...
+#
+# encrypt: AES encryption (reversible with key)
+#   Example: john@example.com → U2FsdGVk...
+
+# Custom Pattern Recognizers
+# ---------------------------
+# Add domain-specific PII patterns for your organization
+# These work alongside ai4privacy and Presidio recognizers
+custom_patterns:
+  # Example: Volunteer ID numbers
+  - name: numero_benevole
+    entity_type: NUMERO_BENEVOLE
+    # List of regex patterns to match
+    patterns:
+      - "BEN-\\d{6}"           # Format: BEN-123456
+      - "BENEVOLE\\s+\\d{4}"   # Format: BENEVOLE 1234
+    # Confidence score for matches (0.0 to 1.0)
+    score: 0.9
+
+  # Example: Case/dossier numbers
+  - name: numero_dossier
+    entity_type: NUMERO_DOSSIER
+    patterns:
+      - "DOS-\\d{4}-\\d{4}"    # Format: DOS-2026-0042
+      - "DOSSIER[\\s-]\\d{6}"  # Format: DOSSIER 123456 or DOSSIER-123456
+    score: 0.9
+
+  # Example: Internal employee IDs
+  # - name: employee_id
+  #   entity_type: EMPLOYEE_ID
+  #   patterns:
+  #     - "EMP-\\d{5}"
+  #   score: 0.85
+
+  # Example: Member IDs
+  # - name: member_id
+  #   entity_type: MEMBER_ID
+  #   patterns:
+  #     - "MEM\\d{8}"
+  #     - "MEMBRE-\\d{6}"
+  #   score: 0.9
+
+  # Example: French social security numbers (INSEE)
+  # - name: numero_secu_fr
+  #   entity_type: FR_INSEE
+  #   patterns:
+  #     - "[12]\\d{2}(0[1-9]|1[0-2])\\d{2}\\d{3}\\d{3}\\d{2}"
+  #   score: 0.95
+
+# Language Configuration
+# ----------------------
+# Primary language for NLP processing
+# Note: For French text, set multilingual: true in ai4privacy settings
+# Options: en (English), fr (French), es (Spanish), etc.
+# Default: fr
+language: fr
+
+# Additional Notes:
+# -----------------
+# 1. First Run: ai4privacy models will be downloaded (~1.5GB, one-time)
+# 2. Performance: First detection takes 10-20 seconds (model loading)
+# 3. GPU Support: Automatically used if available for faster processing
+# 4. Presidio Models: Optional spaCy models can be installed for better NER
+#    - English: python -m spacy download en_core_web_lg
+#    - French: python -m spacy download fr_core_news_md
+#
+# For more information, see: README.md and REFACTORING_SUMMARY.md
