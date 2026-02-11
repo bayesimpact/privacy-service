@@ -39,7 +39,9 @@ class DetectRequest(BaseModel):
 class DetectionResponse(BaseModel):
     """Response model for detection endpoint."""
 
-    detections: list[dict[str, Any]] = Field(..., description="List of detected PII entities")
+    detections: list[dict[str, Any]] = Field(
+        ..., description="List of detected PII entities"
+    )
 
 
 class AnonymizeRequest(BaseModel):
@@ -53,7 +55,9 @@ class AnonymizeResponse(BaseModel):
 
     anonymized_text: str = Field(..., description="Anonymized text")
     original_text: str = Field(..., description="Original text")
-    detections: list[dict[str, Any]] = Field(..., description="List of detected and anonymized PII entities")
+    detections: list[dict[str, Any]] = Field(
+        ..., description="List of detected and anonymized PII entities"
+    )
 
 
 class HealthResponse(BaseModel):
@@ -150,5 +154,3 @@ async def global_exception_handler(request: Any, exc: Exception) -> JSONResponse
         status_code=500,
         content={"detail": "Internal server error"},
     )
-
-
