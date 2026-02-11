@@ -26,7 +26,7 @@ class PrivacyService:
     """Main service for PII detection and anonymization.
 
     This class orchestrates Presidio's AnalyzerEngine and AnonymizerEngine,
-    along with custom recognizers like AI4Privacy.
+    along with custom recognizers like AI4Privacy and EDS-NLP.
 
     Example:
         >>> service = PrivacyService()
@@ -128,6 +128,10 @@ class PrivacyService:
         if self.config.use_ai4privacy:
             self._load_ai4privacy_recognizer()
 
+        # Add EDS-NLP recognizer if enabled
+        if self.config.use_edsnlp:
+            self._load_edsnlp_recognizer()
+
         # Add custom pattern recognizers
         for pattern_config in self.config.custom_patterns:
             self.add_custom_pattern(
@@ -153,6 +157,20 @@ class PrivacyService:
             classify_pii=self.config.ai4privacy_classify_pii,
         )
         self._registry.add_recognizer(ai4privacy_recognizer)
+
+    def _load_edsnlp_recognizer(self) -> None:
+        """Load EDS-NLP recognizer."""
+        from privacy_service.recognizers.edsnlp_recognizer import EDSNLPRecognizer
+
+        edsnlp_recognizer = EDSNLPRecognizer(
+            model_name=self.config.edsnlp_model_name,
+            confidence_threshold=self.config.edsnlp_confidence_threshold,
+            auto_update=self.config.edsnlp_auto_update,
+            language=self.config.language,
+        )
+        # Load the model (this will download it if needed)
+        edsnlp_recognizer.load()
+        self._registry.add_recognizer(edsnlp_recognizer)
 
     def detect(
         self,

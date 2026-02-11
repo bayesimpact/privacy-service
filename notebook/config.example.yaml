@@ -19,6 +19,11 @@ recognizers:
   # Default: true
   use_presidio_defaults: true
 
+  # Enable EDS-NLP library for French medical PII detection
+  # Uses AP-HP/eds-pseudo-public model for healthcare-specific entities
+  # Default: false
+  use_edsnlp: true
+
   # Enable spaCy NLP engine for better NER
   # Default: true
   use_spacy_nlp: true
@@ -164,6 +169,6 @@ language: fr
 # 3. GPU Support: Automatically used if available for faster processing
 # 4. Presidio Models: Optional spaCy models can be installed for better NER
 #    - English: python -m spacy download en_core_web_lg
-#    - French: python -m spacy download fr_core_news_md
+#    - French: python -m spacy download fr_core_news_lg
 #
-# For more information, see: README.md and REFACTORING_SUMMARY.md
+# For more information, see: README.md

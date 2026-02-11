@@ -1,11 +1,12 @@
-"""Entity type mapping between ai4privacy and Presidio.
+"""Entity type mapping between ai4privacy, EDS-NLP and Presidio.
 
 Supports:
 - ai4privacy library: State-of-the-art PII detection with specific entity classification
+- EDS-NLP: French medical NER model (AP-HP/eds-pseudo-public) for PII detection
 - CamemBERT-NER: Standard NER tags for French (PER, ORG, LOC, MISC) - legacy support
 - Other French NER models - legacy support
 
-This module maps entity types from ai4privacy to Presidio's standard entity types.
+This module maps entity types from various models to Presidio's standard entity types.
 """
 
 # Mapping for French NER models (CamemBERT-NER standard tags)
@@ -98,6 +99,24 @@ AI4PRIVACY_TO_PRESIDIO_MAPPING = {
     "MASKEDNUMBER": "MASKED_ID",
 }
 
+# Mapping from EDS-NLP entity types to Presidio entity types
+# Based on AP-HP/eds-pseudo-public model labels
+EDS_NLP_TO_PRESIDIO_MAPPING = {
+    "ADRESSE": "LOCATION",  # Street address
+    "DATE": "DATE_TIME",  # Any absolute date other than a birthdate
+    "DATE_NAISSANCE": "DATE_TIME",  # Birthdate
+    "HOPITAL": "ORGANIZATION",  # Hospital name
+    "IPP": "ID_CARD",  # Internal AP-HP identifier for patients
+    "MAIL": "EMAIL_ADDRESS",  # Email address
+    "NDA": "ID_CARD",  # Internal AP-HP identifier for visits
+    "NOM": "PERSON",  # Last name
+    "PRENOM": "PERSON",  # First name
+    "SECU": "US_SSN",  # Social security number (French SSN)
+    "TEL": "PHONE_NUMBER",  # Phone number
+    "VILLE": "LOCATION",  # City
+    "ZIP": "LOCATION",  # Zip code
+}
+
 # Reverse mapping (Presidio to ai4privacy types)
 PRESIDIO_TO_AI4PRIVACY_MAPPING: dict[str, list[str]] = {}
 for ai4p_type, presidio_type in AI4PRIVACY_TO_PRESIDIO_MAPPING.items():
@@ -124,6 +143,10 @@ def map_ai4privacy_to_presidio(ai4privacy_entity: str) -> str:
     if entity in FRENCH_NER_TO_PRESIDIO_MAPPING:
         return FRENCH_NER_TO_PRESIDIO_MAPPING[entity]
 
+    # Try EDS-NLP mapping
+    if entity in EDS_NLP_TO_PRESIDIO_MAPPING:
+        return EDS_NLP_TO_PRESIDIO_MAPPING[entity]
+
     # Try ai4privacy mapping
     if entity in AI4PRIVACY_TO_PRESIDIO_MAPPING:
         return AI4PRIVACY_TO_PRESIDIO_MAPPING[entity]
@@ -131,6 +154,26 @@ def map_ai4privacy_to_presidio(ai4privacy_entity: str) -> str:
     # If no mapping exists, use the original type as-is
     # This preserves model-specific entity types
     return entity
+
+
+def map_edsnlp_to_presidio(edsnlp_entity: str) -> str:
+    """Map EDS-NLP entity type to Presidio entity type.
+
+    Args:
+        edsnlp_entity: Entity type from EDS-NLP model
+
+    Returns:
+        Corresponding Presidio entity type, or original if no mapping exists
+    """
+    # Normalize to uppercase
+    entity = edsnlp_entity.upper().replace(" ", "")
+
+    # Try EDS-NLP mapping
+    if entity in EDS_NLP_TO_PRESIDIO_MAPPING:
+        return EDS_NLP_TO_PRESIDIO_MAPPING[entity]
+
+    # Fallback to general mapping function
+    return map_ai4privacy_to_presidio(entity)
 
 
 def get_all_ai4privacy_entities() -> list:
@@ -150,4 +193,5 @@ def get_all_presidio_entities() -> list:
     """
     all_entities = set(AI4PRIVACY_TO_PRESIDIO_MAPPING.values())
     all_entities.update(FRENCH_NER_TO_PRESIDIO_MAPPING.values())
+    all_entities.update(EDS_NLP_TO_PRESIDIO_MAPPING.values())
     return list(all_entities)

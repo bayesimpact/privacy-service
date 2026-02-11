@@ -53,6 +53,7 @@ def load_config(
     if "recognizers" in config_dict:
         recognizers = config_dict["recognizers"]
         config.use_ai4privacy = recognizers.get("use_ai4privacy", config.use_ai4privacy)
+        config.use_edsnlp = recognizers.get("use_edsnlp", config.use_edsnlp)
         config.use_presidio_defaults = recognizers.get(
             "use_presidio_defaults", config.use_presidio_defaults
         )
@@ -67,6 +68,18 @@ def load_config(
             )
             config.ai4privacy_classify_pii = ai4p.get(
                 "classify_pii", config.ai4privacy_classify_pii
+            )
+
+        if "edsnlp" in recognizers:
+            edsnlp_config = recognizers["edsnlp"]
+            config.edsnlp_model_name = edsnlp_config.get(
+                "model_name", config.edsnlp_model_name
+            )
+            config.edsnlp_confidence_threshold = edsnlp_config.get(
+                "confidence_threshold", config.edsnlp_confidence_threshold
+            )
+            config.edsnlp_auto_update = edsnlp_config.get(
+                "auto_update", config.edsnlp_auto_update
             )
 
     if "anonymization" in config_dict:
@@ -114,12 +127,18 @@ def save_config(config: PrivacyConfig, output_path: str | Path) -> None:
     config_dict = {
         "recognizers": {
             "use_ai4privacy": config.use_ai4privacy,
+            "use_edsnlp": config.use_edsnlp,
             "use_presidio_defaults": config.use_presidio_defaults,
             "use_spacy_nlp": config.use_spacy_nlp,
             "spacy_nlp_model": config.spacy_nlp_models,
             "ai4privacy": {
                 "confidence_threshold": config.ai4privacy_confidence_threshold,
                 "classify_pii": config.ai4privacy_classify_pii,
+            },
+            "edsnlp": {
+                "model_name": config.edsnlp_model_name,
+                "confidence_threshold": config.edsnlp_confidence_threshold,
+                "auto_update": config.edsnlp_auto_update,
             },
         },
         "anonymization": {
@@ -179,6 +198,20 @@ def validate_config(config: PrivacyConfig) -> None:
         raise ValueError(
             f"ai4privacy_classify_pii must be a boolean,"
             f" got {type(config.ai4privacy_classify_pii)}"
+        )
+
+    # Validate EDS-NLP confidence threshold
+    if not 0.0 <= config.edsnlp_confidence_threshold <= 1.0:
+        raise ValueError(
+            f"edsnlp_confidence_threshold must be between 0.0 and 1.0, "
+            f"got {config.edsnlp_confidence_threshold}"
+        )
+
+    # Validate EDS-NLP auto_update flag
+    if not isinstance(config.edsnlp_auto_update, bool):
+        raise ValueError(
+            f"edsnlp_auto_update must be a boolean,"
+            f" got {type(config.edsnlp_auto_update)}"
         )
 
     # Validate anonymization strategies

@@ -35,6 +35,7 @@ dependencies = [
     "rich>=13.0.0",
     "protobuf>=6.33.5",
     "ai4privacy>=0.3.3",
+    "edsnlp[ml]>=0.20.0",
 ]
 
 
