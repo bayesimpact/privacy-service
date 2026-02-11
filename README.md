@@ -14,12 +14,13 @@ Install from source using `uv`:
 
 ```bash
 UV_HTTP_TIMEOUT=600 uv sync
+uv run python en
 ```
 
 Then run:
 
 ```bash
-uv run python -m pip install -e .
+uv pip install -e .
 ```
 
 ### Extra dependencies for spaCy models
@@ -27,8 +28,9 @@ uv run python -m pip install -e .
 If you enable spaCy NLP (default), you should install the language models you need. For example:
 
 ```bash
-uv python -m spacy download fr_core_news_lg
-uv python -m spacy download en_core_web_lg
+uv run python -m ensurepip
+uv run python -m spacy download fr_core_news_lg
+uv run python -m spacy download en_core_web_lg
 ```
 
 You can customize which models are loaded in `config.yaml` (see below).
