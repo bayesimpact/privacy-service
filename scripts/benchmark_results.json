@@ -1,0 +1,2268 @@
+[
+  {
+    "config_name": "spacy",
+    "recognizers": [
+      "CryptoRecognizer",
+      "DateRecognizer",
+      "EmailRecognizer",
+      "IbanRecognizer",
+      "IpRecognizer",
+      "MedicalLicenseRecognizer",
+      "PhoneRecognizer",
+      "UrlRecognizer",
+      "SpacyRecognizer",
+      "SpacyRecognizer"
+    ],
+    "num_rows": 22466,
+    "entity_aware": [
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14040,
+        "fp": 6,
+        "fn": 294,
+        "precision": 0.9995728321230244,
+        "recall": 0.9794893260778569,
+        "f1": 0.9894291754756872
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 9670,
+        "fp": 1420,
+        "fn": 6523,
+        "precision": 0.8719567177637512,
+        "recall": 0.5971716173655283,
+        "f1": 0.7088663270168237
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 18958,
+        "fp": 1226,
+        "fn": 14725,
+        "precision": 0.9392588188664288,
+        "recall": 0.5628358519134281,
+        "f1": 0.7038817829097591
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 7574,
+        "fp": 73,
+        "fn": 12980,
+        "precision": 0.9904537727213286,
+        "recall": 0.36849275080276345,
+        "f1": 0.5371440729052162
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 4095,
+        "fp": 0,
+        "fn": 19243,
+        "precision": 1.0,
+        "recall": 0.1754649070185963,
+        "f1": 0.29854554733350347
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1698,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1126,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 0,
+        "fp": 0,
+        "fn": 493,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 632,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1017,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 0,
+        "fp": 0,
+        "fn": 2267,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 852,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 2477,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1949,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 82,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IP_ADDRESS",
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "entity_unaware": [
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14309,
+        "fp": 6,
+        "fn": 25,
+        "precision": 0.999580859238561,
+        "recall": 0.9982558950746477,
+        "f1": 0.9989179377988762
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 23193,
+        "fp": 1226,
+        "fn": 10490,
+        "precision": 0.9497931938244809,
+        "recall": 0.6885669328741502,
+        "f1": 0.7983546177412136
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 10778,
+        "fp": 1420,
+        "fn": 5415,
+        "precision": 0.883587473356288,
+        "recall": 0.6655962452911752,
+        "f1": 0.7592546933887501
+      },
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 1076,
+        "fp": 0,
+        "fn": 873,
+        "precision": 1.0,
+        "recall": 0.5520779887121601,
+        "f1": 0.7114049586776859
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 533,
+        "fp": 0,
+        "fn": 484,
+        "precision": 1.0,
+        "recall": 0.5240904621435595,
+        "f1": 0.6877419354838709
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 731,
+        "fp": 0,
+        "fn": 967,
+        "precision": 1.0,
+        "recall": 0.4305064782096584,
+        "f1": 0.6018937834499795
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 8409,
+        "fp": 73,
+        "fn": 12145,
+        "precision": 0.9913935392596086,
+        "recall": 0.40911744672569816,
+        "f1": 0.579212012673922
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 902,
+        "fp": 0,
+        "fn": 1575,
+        "precision": 1.0,
+        "recall": 0.36415018167137664,
+        "f1": 0.5338857650192365
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 300,
+        "fp": 0,
+        "fn": 552,
+        "precision": 1.0,
+        "recall": 0.352112676056338,
+        "f1": 0.5208333333333333
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 5170,
+        "fp": 0,
+        "fn": 18168,
+        "precision": 1.0,
+        "recall": 0.2215271231467992,
+        "f1": 0.36270520555633506
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 150,
+        "fp": 0,
+        "fn": 2117,
+        "precision": 1.0,
+        "recall": 0.06616674018526687,
+        "f1": 0.12412081092263137
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 5,
+        "fp": 0,
+        "fn": 488,
+        "precision": 1.0,
+        "recall": 0.010141987829614604,
+        "f1": 0.020080321285140566
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 3,
+        "fp": 0,
+        "fn": 1123,
+        "precision": 1.0,
+        "recall": 0.0026642984014209592,
+        "f1": 0.005314437555358725
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 632,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 82,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IP_ADDRESS",
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ]
+  },
+  {
+    "config_name": "ai4privacy",
+    "recognizers": [
+      "CryptoRecognizer",
+      "DateRecognizer",
+      "EmailRecognizer",
+      "IbanRecognizer",
+      "IpRecognizer",
+      "MedicalLicenseRecognizer",
+      "PhoneRecognizer",
+      "UrlRecognizer",
+      "AI4PrivacyRecognizer"
+    ],
+    "num_rows": 22466,
+    "entity_aware": [
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14213,
+        "fp": 1598,
+        "fn": 121,
+        "precision": 0.8989311239010815,
+        "recall": 0.9915585321612949,
+        "f1": 0.9429756178470724
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 19948,
+        "fp": 2145,
+        "fn": 606,
+        "precision": 0.9029104241162359,
+        "recall": 0.9705166877493432,
+        "f1": 0.9354937041292472
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 20977,
+        "fp": 1689,
+        "fn": 2361,
+        "precision": 0.9254831024441895,
+        "recall": 0.8988345188105236,
+        "f1": 0.9119641770280845
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 2076,
+        "fp": 1271,
+        "fn": 191,
+        "precision": 0.620256946519271,
+        "recall": 0.9157476841640935,
+        "f1": 0.7395796223726399
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 12713,
+        "fp": 5895,
+        "fn": 3480,
+        "precision": 0.6832007738607051,
+        "recall": 0.7850923238436361,
+        "f1": 0.7306111893336399
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 22925,
+        "fp": 15993,
+        "fn": 10758,
+        "precision": 0.589059047227504,
+        "recall": 0.6806103969361399,
+        "f1": 0.6315340009090784
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 959,
+        "fp": 1056,
+        "fn": 167,
+        "precision": 0.4759305210918114,
+        "recall": 0.8516873889875666,
+        "f1": 0.6106335561922954
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 775,
+        "fp": 5189,
+        "fn": 242,
+        "precision": 0.12994634473507713,
+        "recall": 0.7620452310717798,
+        "f1": 0.2220312276178198
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1698,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 0,
+        "fp": 0,
+        "fn": 493,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 852,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 2477,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1949,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 57,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "entity_unaware": [
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 1822,
+        "fp": 0,
+        "fn": 127,
+        "precision": 1.0,
+        "recall": 0.9348383786557208,
+        "f1": 0.9663219305224078
+      },
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14332,
+        "fp": 1598,
+        "fn": 2,
+        "precision": 0.8996861268047709,
+        "recall": 0.9998604716059718,
+        "f1": 0.9471319058947925
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 22472,
+        "fp": 1689,
+        "fn": 866,
+        "precision": 0.9300939530648565,
+        "recall": 0.9628931356585826,
+        "f1": 0.9462093938819766
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 20236,
+        "fp": 2145,
+        "fn": 318,
+        "precision": 0.9041597783834503,
+        "recall": 0.9845285589179722,
+        "f1": 0.9426342145103063
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 392,
+        "fp": 0,
+        "fn": 101,
+        "precision": 1.0,
+        "recall": 0.795131845841785,
+        "f1": 0.8858757062146893
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 612,
+        "fp": 0,
+        "fn": 240,
+        "precision": 1.0,
+        "recall": 0.7183098591549296,
+        "f1": 0.8360655737704918
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 15322,
+        "fp": 5895,
+        "fn": 871,
+        "precision": 0.7221567610878069,
+        "recall": 0.9462113258815538,
+        "f1": 0.8191392675755145
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 1177,
+        "fp": 0,
+        "fn": 521,
+        "precision": 1.0,
+        "recall": 0.693168433451119,
+        "f1": 0.8187826086956522
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 2248,
+        "fp": 1271,
+        "fn": 19,
+        "precision": 0.6388178459789713,
+        "recall": 0.9916188795765328,
+        "f1": 0.7770480470100242
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 28201,
+        "fp": 15993,
+        "fn": 5482,
+        "precision": 0.6381182966013486,
+        "recall": 0.8372472760739839,
+        "f1": 0.7242446421921747
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 1126,
+        "fp": 1056,
+        "fn": 0,
+        "precision": 0.5160403299725023,
+        "recall": 1.0,
+        "f1": 0.6807738814993953
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 1167,
+        "fp": 0,
+        "fn": 1310,
+        "precision": 1.0,
+        "recall": 0.47113443681873235,
+        "f1": 0.6405049396267837
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 1006,
+        "fp": 5189,
+        "fn": 11,
+        "precision": 0.16238902340597255,
+        "recall": 0.9891838741396264,
+        "f1": 0.2789794786467
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 57,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ]
+  },
+  {
+    "config_name": "edsnlp",
+    "recognizers": [
+      "CryptoRecognizer",
+      "DateRecognizer",
+      "EmailRecognizer",
+      "IbanRecognizer",
+      "IpRecognizer",
+      "MedicalLicenseRecognizer",
+      "PhoneRecognizer",
+      "UrlRecognizer",
+      "EDSNLPRecognizer"
+    ],
+    "num_rows": 22466,
+    "entity_aware": [
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14329,
+        "fp": 133,
+        "fn": 5,
+        "precision": 0.9908034849951597,
+        "recall": 0.9996511790149295,
+        "f1": 0.9952076677316294
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 19302,
+        "fp": 191,
+        "fn": 1252,
+        "precision": 0.9902016108346586,
+        "recall": 0.9390872822808213,
+        "f1": 0.9639673383774067
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 29594,
+        "fp": 162,
+        "fn": 4089,
+        "precision": 0.9945557198548192,
+        "recall": 0.8786034498114776,
+        "f1": 0.9329907470168193
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 11570,
+        "fp": 318,
+        "fn": 4623,
+        "precision": 0.973250336473755,
+        "recall": 0.7145062681405545,
+        "f1": 0.8240447277518607
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 9461,
+        "fp": 37,
+        "fn": 13877,
+        "precision": 0.9961044430406402,
+        "recall": 0.4053903505013283,
+        "f1": 0.5762577658667316
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 716,
+        "fp": 6,
+        "fn": 1551,
+        "precision": 0.9916897506925207,
+        "recall": 0.3158359064843405,
+        "f1": 0.47908999665439944
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1698,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1126,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 0,
+        "fp": 0,
+        "fn": 493,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1017,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 852,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 2477,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 40,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1949,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 69,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ID_CARD",
+        "tp": 0,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IP_ADDRESS",
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "entity_unaware": [
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14329,
+        "fp": 133,
+        "fn": 5,
+        "precision": 0.9908034849951597,
+        "recall": 0.9996511790149295,
+        "f1": 0.9952076677316294
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 20175,
+        "fp": 191,
+        "fn": 379,
+        "precision": 0.9906216242757537,
+        "recall": 0.9815607667607278,
+        "f1": 0.9860703812316716
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 29822,
+        "fp": 162,
+        "fn": 3861,
+        "precision": 0.9945971184631803,
+        "recall": 0.8853724430721729,
+        "f1": 0.9368118491526222
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 12072,
+        "fp": 318,
+        "fn": 4121,
+        "precision": 0.9743341404358353,
+        "recall": 0.7455073179769036,
+        "f1": 0.8446978973515725
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 1595,
+        "fp": 6,
+        "fn": 672,
+        "precision": 0.9962523422860712,
+        "recall": 0.7035730039700044,
+        "f1": 0.8247156153050672
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 1662,
+        "fp": 0,
+        "fn": 815,
+        "precision": 1.0,
+        "recall": 0.6709729511505854,
+        "f1": 0.8030925344286061
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 323,
+        "fp": 0,
+        "fn": 170,
+        "precision": 1.0,
+        "recall": 0.6551724137931034,
+        "f1": 0.7916666666666666
+      },
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 851,
+        "fp": 0,
+        "fn": 1098,
+        "precision": 1.0,
+        "recall": 0.4366341713699333,
+        "f1": 0.6078571428571429
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 9611,
+        "fp": 37,
+        "fn": 13727,
+        "precision": 0.9961650082918739,
+        "recall": 0.4118176364727055,
+        "f1": 0.5827320681501243
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 258,
+        "fp": 0,
+        "fn": 594,
+        "precision": 1.0,
+        "recall": 0.3028169014084507,
+        "f1": 0.46486486486486484
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 441,
+        "fp": 0,
+        "fn": 1257,
+        "precision": 1.0,
+        "recall": 0.2597173144876325,
+        "f1": 0.4123422159887798
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 31,
+        "fp": 0,
+        "fn": 986,
+        "precision": 1.0,
+        "recall": 0.03048180924287119,
+        "f1": 0.05916030534351145
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 18,
+        "fp": 0,
+        "fn": 1108,
+        "precision": 1.0,
+        "recall": 0.015985790408525755,
+        "f1": 0.03146853146853147
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 40,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 69,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ID_CARD",
+        "tp": 0,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IP_ADDRESS",
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ]
+  },
+  {
+    "config_name": "spacy+ai4privacy",
+    "recognizers": [
+      "CryptoRecognizer",
+      "DateRecognizer",
+      "EmailRecognizer",
+      "IbanRecognizer",
+      "IpRecognizer",
+      "MedicalLicenseRecognizer",
+      "PhoneRecognizer",
+      "UrlRecognizer",
+      "SpacyRecognizer",
+      "SpacyRecognizer",
+      "AI4PrivacyRecognizer"
+    ],
+    "num_rows": 22466,
+    "entity_aware": [
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14081,
+        "fp": 1593,
+        "fn": 253,
+        "precision": 0.8983667219599336,
+        "recall": 0.9823496581554346,
+        "f1": 0.9384830711810185
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 19848,
+        "fp": 2145,
+        "fn": 706,
+        "precision": 0.9024689673987177,
+        "recall": 0.9656514547046804,
+        "f1": 0.9329917502996685
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 20658,
+        "fp": 1689,
+        "fn": 2680,
+        "precision": 0.9244193851523694,
+        "recall": 0.8851658239780615,
+        "f1": 0.9043668600197001
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 2076,
+        "fp": 1261,
+        "fn": 191,
+        "precision": 0.622115672759964,
+        "recall": 0.9157476841640935,
+        "f1": 0.740899357601713
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 13303,
+        "fp": 6934,
+        "fn": 2890,
+        "precision": 0.657360280674013,
+        "recall": 0.8215278206632496,
+        "f1": 0.7303321438374966
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 27268,
+        "fp": 16553,
+        "fn": 6415,
+        "precision": 0.6222587343967504,
+        "recall": 0.8095478431256123,
+        "f1": 0.703654004954583
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 958,
+        "fp": 1050,
+        "fn": 168,
+        "precision": 0.4770916334661355,
+        "recall": 0.8507992895204263,
+        "f1": 0.6113592852584556
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 753,
+        "fp": 5089,
+        "fn": 264,
+        "precision": 0.12889421431016776,
+        "recall": 0.7404129793510325,
+        "f1": 0.21956553433445108
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1698,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 0,
+        "fp": 0,
+        "fn": 493,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 554,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 852,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 2477,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1949,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 51,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "entity_unaware": [
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 1874,
+        "fp": 0,
+        "fn": 75,
+        "precision": 1.0,
+        "recall": 0.961518727552591,
+        "f1": 0.9803818990321738
+      },
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14333,
+        "fp": 1593,
+        "fn": 1,
+        "precision": 0.8999748838377496,
+        "recall": 0.9999302358029859,
+        "f1": 0.9473231989424984
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 22473,
+        "fp": 1689,
+        "fn": 865,
+        "precision": 0.930096846287559,
+        "recall": 0.9629359842317251,
+        "f1": 0.9462315789473684
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 20238,
+        "fp": 2145,
+        "fn": 316,
+        "precision": 0.9041683420453023,
+        "recall": 0.9846258635788654,
+        "f1": 0.9426834664741365
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 1430,
+        "fp": 0,
+        "fn": 268,
+        "precision": 1.0,
+        "recall": 0.8421672555948174,
+        "f1": 0.9143222506393862
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 715,
+        "fp": 0,
+        "fn": 137,
+        "precision": 1.0,
+        "recall": 0.8392018779342723,
+        "f1": 0.9125717932354818
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 394,
+        "fp": 0,
+        "fn": 99,
+        "precision": 1.0,
+        "recall": 0.7991886409736308,
+        "f1": 0.8883878241262684
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 15920,
+        "fp": 6934,
+        "fn": 273,
+        "precision": 0.696595781920014,
+        "recall": 0.9831408633360094,
+        "f1": 0.8154275616564653
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 2248,
+        "fp": 1261,
+        "fn": 19,
+        "precision": 0.640638358506697,
+        "recall": 0.9916188795765328,
+        "f1": 0.7783933518005539
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 31915,
+        "fp": 16553,
+        "fn": 1768,
+        "precision": 0.6584756953041182,
+        "recall": 0.9475106136626785,
+        "f1": 0.7769838468186632
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 1342,
+        "fp": 0,
+        "fn": 1135,
+        "precision": 1.0,
+        "recall": 0.5417844166330238,
+        "f1": 0.70280178057083
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 1126,
+        "fp": 1050,
+        "fn": 0,
+        "precision": 0.5174632352941176,
+        "recall": 1.0,
+        "f1": 0.6820109024833434
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 1006,
+        "fp": 5089,
+        "fn": 11,
+        "precision": 0.16505332239540607,
+        "recall": 0.9891838741396264,
+        "f1": 0.2829021372328459
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 554,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 51,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ]
+  },
+  {
+    "config_name": "spacy+edsnlp",
+    "recognizers": [
+      "CryptoRecognizer",
+      "DateRecognizer",
+      "EmailRecognizer",
+      "IbanRecognizer",
+      "IpRecognizer",
+      "MedicalLicenseRecognizer",
+      "PhoneRecognizer",
+      "UrlRecognizer",
+      "SpacyRecognizer",
+      "SpacyRecognizer",
+      "EDSNLPRecognizer"
+    ],
+    "num_rows": 22466,
+    "entity_aware": [
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14159,
+        "fp": 124,
+        "fn": 175,
+        "precision": 0.9913183504865924,
+        "recall": 0.9877912655225338,
+        "f1": 0.9895516650941748
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 19221,
+        "fp": 189,
+        "fn": 1333,
+        "precision": 0.9902627511591963,
+        "recall": 0.9351464435146444,
+        "f1": 0.9619157241517364
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 30342,
+        "fp": 1303,
+        "fn": 3341,
+        "precision": 0.9588244588402591,
+        "recall": 0.9008104978772674,
+        "f1": 0.9289125642909625
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 13138,
+        "fp": 1673,
+        "fn": 3055,
+        "precision": 0.8870434136790224,
+        "recall": 0.8113382325696289,
+        "f1": 0.8475035479292995
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 9440,
+        "fp": 37,
+        "fn": 13898,
+        "precision": 0.9960958109106257,
+        "recall": 0.4044905304653355,
+        "f1": 0.5753466402559805
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 716,
+        "fp": 6,
+        "fn": 1551,
+        "precision": 0.9916897506925207,
+        "recall": 0.3158359064843405,
+        "f1": 0.47908999665439944
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1126,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 0,
+        "fp": 0,
+        "fn": 493,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 659,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1698,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1017,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 852,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 2477,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1949,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 63,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ID_CARD",
+        "tp": 0,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IP_ADDRESS",
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "entity_unaware": [
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14330,
+        "fp": 124,
+        "fn": 4,
+        "precision": 0.9914210599142106,
+        "recall": 0.9997209432119436,
+        "f1": 0.9955537029317771
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 20195,
+        "fp": 189,
+        "fn": 359,
+        "precision": 0.990728021978022,
+        "recall": 0.9825338133696604,
+        "f1": 0.9866139039523181
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 32434,
+        "fp": 1303,
+        "fn": 1249,
+        "precision": 0.9613777158609242,
+        "recall": 0.9629189799008402,
+        "f1": 0.9621477306437259
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 14057,
+        "fp": 1673,
+        "fn": 2136,
+        "precision": 0.8936427209154482,
+        "recall": 0.8680911504971284,
+        "f1": 0.8806816401967233
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 1867,
+        "fp": 0,
+        "fn": 610,
+        "precision": 1.0,
+        "recall": 0.7537343560758982,
+        "f1": 0.8595764272559853
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 1595,
+        "fp": 6,
+        "fn": 672,
+        "precision": 0.9962523422860712,
+        "recall": 0.7035730039700044,
+        "f1": 0.8247156153050672
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 324,
+        "fp": 0,
+        "fn": 169,
+        "precision": 1.0,
+        "recall": 0.6572008113590264,
+        "f1": 0.7931456548347614
+      },
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 1211,
+        "fp": 0,
+        "fn": 738,
+        "precision": 1.0,
+        "recall": 0.6213442791174961,
+        "f1": 0.7664556962025316
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 491,
+        "fp": 0,
+        "fn": 361,
+        "precision": 1.0,
+        "recall": 0.5762910798122066,
+        "f1": 0.7311988086373791
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 976,
+        "fp": 0,
+        "fn": 722,
+        "precision": 1.0,
+        "recall": 0.574793875147232,
+        "f1": 0.7299925205684368
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 540,
+        "fp": 0,
+        "fn": 477,
+        "precision": 1.0,
+        "recall": 0.5309734513274337,
+        "f1": 0.6936416184971099
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 10590,
+        "fp": 37,
+        "fn": 12748,
+        "precision": 0.9965183024371883,
+        "recall": 0.453766389579227,
+        "f1": 0.6235831002502576
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 20,
+        "fp": 0,
+        "fn": 1106,
+        "precision": 1.0,
+        "recall": 0.017761989342806393,
+        "f1": 0.03490401396160558
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 659,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 63,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ID_CARD",
+        "tp": 0,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IP_ADDRESS",
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ]
+  },
+  {
+    "config_name": "ai4privacy+edsnlp",
+    "recognizers": [
+      "CryptoRecognizer",
+      "DateRecognizer",
+      "EmailRecognizer",
+      "IbanRecognizer",
+      "IpRecognizer",
+      "MedicalLicenseRecognizer",
+      "PhoneRecognizer",
+      "UrlRecognizer",
+      "AI4PrivacyRecognizer",
+      "EDSNLPRecognizer"
+    ],
+    "num_rows": 22466,
+    "entity_aware": [
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14224,
+        "fp": 1689,
+        "fn": 110,
+        "precision": 0.8938603657387042,
+        "recall": 0.9923259383284498,
+        "f1": 0.9405230270770655
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 19972,
+        "fp": 2158,
+        "fn": 582,
+        "precision": 0.9024853140533213,
+        "recall": 0.9716843436800623,
+        "f1": 0.9358073282728891
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 21936,
+        "fp": 1717,
+        "fn": 1402,
+        "precision": 0.9274087853549232,
+        "recall": 0.9399263004541949,
+        "f1": 0.9336255878785298
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 13812,
+        "fp": 6026,
+        "fn": 2381,
+        "precision": 0.6962395402762376,
+        "recall": 0.8529611560550855,
+        "f1": 0.7666731425716744
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 2096,
+        "fp": 1274,
+        "fn": 171,
+        "precision": 0.6219584569732938,
+        "recall": 0.9245699161887958,
+        "f1": 0.7436579740996985
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 29276,
+        "fp": 16025,
+        "fn": 4407,
+        "precision": 0.6462550495574049,
+        "recall": 0.8691624855268236,
+        "f1": 0.7413146966474222
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 959,
+        "fp": 1051,
+        "fn": 167,
+        "precision": 0.4771144278606965,
+        "recall": 0.8516873889875666,
+        "f1": 0.6116071428571428
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 770,
+        "fp": 5178,
+        "fn": 247,
+        "precision": 0.12945527908540685,
+        "recall": 0.7571288102261554,
+        "f1": 0.22110552763819094
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1698,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 0,
+        "fp": 0,
+        "fn": 493,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 852,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 2477,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 37,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1949,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 48,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ID_CARD",
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "entity_unaware": [
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 1839,
+        "fp": 0,
+        "fn": 110,
+        "precision": 1.0,
+        "recall": 0.9435608004104669,
+        "f1": 0.9709609292502639
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 459,
+        "fp": 0,
+        "fn": 34,
+        "precision": 1.0,
+        "recall": 0.9310344827586207,
+        "f1": 0.9642857142857143
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 22886,
+        "fp": 1717,
+        "fn": 452,
+        "precision": 0.9302117627931553,
+        "recall": 0.9806324449395835,
+        "f1": 0.9547568886756638
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 20513,
+        "fp": 2158,
+        "fn": 41,
+        "precision": 0.9048123152926646,
+        "recall": 0.9980052544516882,
+        "f1": 0.9491266628108733
+      },
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14334,
+        "fp": 1689,
+        "fn": 0,
+        "precision": 0.8945890282718592,
+        "recall": 1.0,
+        "f1": 0.9443620911157229
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 674,
+        "fp": 0,
+        "fn": 178,
+        "precision": 1.0,
+        "recall": 0.7910798122065728,
+        "f1": 0.8833551769331586
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 1931,
+        "fp": 0,
+        "fn": 546,
+        "precision": 1.0,
+        "recall": 0.7795720629794106,
+        "f1": 0.8761343012704175
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 1314,
+        "fp": 0,
+        "fn": 384,
+        "precision": 1.0,
+        "recall": 0.773851590106007,
+        "f1": 0.8725099601593626
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 15989,
+        "fp": 6026,
+        "fn": 204,
+        "precision": 0.7262775380422439,
+        "recall": 0.9874019638115235,
+        "f1": 0.8369451423785595
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 33211,
+        "fp": 16025,
+        "fn": 472,
+        "precision": 0.6745267690307905,
+        "recall": 0.9859869964076834,
+        "f1": 0.8010468047130331
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 2267,
+        "fp": 1274,
+        "fn": 0,
+        "precision": 0.6402146286359786,
+        "recall": 1.0,
+        "f1": 0.7806473829201102
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 1126,
+        "fp": 1051,
+        "fn": 0,
+        "precision": 0.5172255397335783,
+        "recall": 1.0,
+        "f1": 0.6818044202240388
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 1006,
+        "fp": 5178,
+        "fn": 11,
+        "precision": 0.1626778783958603,
+        "recall": 0.9891838741396264,
+        "f1": 0.27940563810581864
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 37,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 48,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ID_CARD",
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ]
+  },
+  {
+    "config_name": "all",
+    "recognizers": [
+      "CryptoRecognizer",
+      "DateRecognizer",
+      "EmailRecognizer",
+      "IbanRecognizer",
+      "IpRecognizer",
+      "MedicalLicenseRecognizer",
+      "PhoneRecognizer",
+      "UrlRecognizer",
+      "SpacyRecognizer",
+      "SpacyRecognizer",
+      "AI4PrivacyRecognizer",
+      "EDSNLPRecognizer"
+    ],
+    "num_rows": 22466,
+    "entity_aware": [
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14138,
+        "fp": 1682,
+        "fn": 196,
+        "precision": 0.8936788874841972,
+        "recall": 0.9863262173852378,
+        "f1": 0.9377197055117066
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 19916,
+        "fp": 2158,
+        "fn": 638,
+        "precision": 0.9022379269729093,
+        "recall": 0.9689598131750511,
+        "f1": 0.93440930843577
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 21617,
+        "fp": 1717,
+        "fn": 1721,
+        "precision": 0.926416388103197,
+        "recall": 0.9262576056217328,
+        "f1": 0.9263369900582791
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 13900,
+        "fp": 7061,
+        "fn": 2293,
+        "precision": 0.6631363007490101,
+        "recall": 0.8583956030383499,
+        "f1": 0.7482370673413361
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 29905,
+        "fp": 16551,
+        "fn": 3778,
+        "precision": 0.6437273979679697,
+        "recall": 0.8878365941276014,
+        "f1": 0.7463282546575325
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 2096,
+        "fp": 1264,
+        "fn": 171,
+        "precision": 0.6238095238095238,
+        "recall": 0.9245699161887958,
+        "f1": 0.7449795628221076
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 958,
+        "fp": 1045,
+        "fn": 168,
+        "precision": 0.4782825761357963,
+        "recall": 0.8507992895204263,
+        "f1": 0.6123362096516458
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 748,
+        "fp": 5079,
+        "fn": 269,
+        "precision": 0.12836794233739487,
+        "recall": 0.7354965585054081,
+        "f1": 0.21858562244301577
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1698,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 0,
+        "fp": 0,
+        "fn": 493,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 583,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 852,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 2477,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 0,
+        "fp": 0,
+        "fn": 1949,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 42,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ID_CARD",
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ],
+    "entity_unaware": [
+      {
+        "entity_type": "DRIVERLICENSENUM",
+        "tp": 1883,
+        "fp": 0,
+        "fn": 66,
+        "precision": 1.0,
+        "recall": 0.9661364802462802,
+        "f1": 0.982776617954071
+      },
+      {
+        "entity_type": "CREDIT_CARD",
+        "tp": 460,
+        "fp": 0,
+        "fn": 33,
+        "precision": 1.0,
+        "recall": 0.9330628803245437,
+        "f1": 0.9653725078698846
+      },
+      {
+        "entity_type": "DATE_TIME",
+        "tp": 22886,
+        "fp": 1717,
+        "fn": 452,
+        "precision": 0.9302117627931553,
+        "recall": 0.9806324449395835,
+        "f1": 0.9547568886756638
+      },
+      {
+        "entity_type": "PHONE_NUMBER",
+        "tp": 20513,
+        "fp": 2158,
+        "fn": 41,
+        "precision": 0.9048123152926646,
+        "recall": 0.9980052544516882,
+        "f1": 0.9491266628108733
+      },
+      {
+        "entity_type": "EMAIL_ADDRESS",
+        "tp": 14334,
+        "fp": 1682,
+        "fn": 0,
+        "precision": 0.89498001998002,
+        "recall": 1.0,
+        "f1": 0.9445799011532126
+      },
+      {
+        "entity_type": "PASSPORTNUM",
+        "tp": 760,
+        "fp": 0,
+        "fn": 92,
+        "precision": 1.0,
+        "recall": 0.892018779342723,
+        "f1": 0.9429280397022333
+      },
+      {
+        "entity_type": "IDCARDNUM",
+        "tp": 1494,
+        "fp": 0,
+        "fn": 204,
+        "precision": 1.0,
+        "recall": 0.8798586572438163,
+        "f1": 0.9360902255639098
+      },
+      {
+        "entity_type": "TAXNUM",
+        "tp": 2041,
+        "fp": 0,
+        "fn": 436,
+        "precision": 1.0,
+        "recall": 0.8239806217198223,
+        "f1": 0.9034971226206285
+      },
+      {
+        "entity_type": "LOCATION",
+        "tp": 16099,
+        "fp": 7061,
+        "fn": 94,
+        "precision": 0.6951208981001727,
+        "recall": 0.994195022540604,
+        "f1": 0.8181841282748457
+      },
+      {
+        "entity_type": "PERSON",
+        "tp": 33529,
+        "fp": 16551,
+        "fn": 154,
+        "precision": 0.669508785942492,
+        "recall": 0.9954279606923374,
+        "f1": 0.8005682699998805
+      },
+      {
+        "entity_type": "US_SSN",
+        "tp": 2267,
+        "fp": 1264,
+        "fn": 0,
+        "precision": 0.6420277541772869,
+        "recall": 1.0,
+        "f1": 0.7819937909624007
+      },
+      {
+        "entity_type": "AGE",
+        "tp": 1126,
+        "fp": 1045,
+        "fn": 0,
+        "precision": 0.5186549976969138,
+        "recall": 1.0,
+        "f1": 0.6830451925993327
+      },
+      {
+        "entity_type": "GENDER",
+        "tp": 1006,
+        "fp": 5079,
+        "fn": 11,
+        "precision": 0.16532456861133935,
+        "recall": 0.9891838741396264,
+        "f1": 0.28330047873838354
+      },
+      {
+        "entity_type": "ORGANIZATION",
+        "tp": 0,
+        "fp": 583,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "URL",
+        "tp": 0,
+        "fp": 42,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "ID_CARD",
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      {
+        "entity_type": "IBAN_CODE",
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    ]
+  }
+]
