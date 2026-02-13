@@ -88,25 +88,12 @@ class EDSNLPRecognizer(EntityRecognizer):
     def load(self) -> None:
         """Load the EDS-NLP model."""
         if self._nlp is None:
-            try:
-                import edsnlp
+            import edsnlp
 
-                self._nlp = edsnlp.load(
-                    model=self.model_name,  # type: ignore[arg-type]
-                    auto_update=self.auto_update,  # type: ignore[arg-type]
-                )
-            except ImportError:
-                warnings.warn(
-                    "edsnlp library not installed. Install it with: pip install edsnlp",
-                    stacklevel=2,
-                )
-                self._nlp = None
-            except Exception as e:
-                warnings.warn(
-                    f"Error loading EDS-NLP model {self.model_name}: {e}",
-                    stacklevel=2,
-                )
-                self._nlp = None
+            self._nlp = edsnlp.load(
+                model=self.model_name,  # type: ignore[arg-type]
+                auto_update=self.auto_update,  # type: ignore[arg-type]
+            )
 
     def analyze(
         self,
@@ -168,7 +155,7 @@ class EDSNLPRecognizer(EntityRecognizer):
                     entity_type=entity_type,
                     start=start,
                     end=end,
-                    score=0.85,
+                    score=0.90,
                     recognition_metadata={
                         "recognizer_name": self.name,
                         "recognizer_identifier": self.id,

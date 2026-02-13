@@ -81,48 +81,38 @@ class PrivacyService:
 
     def _init_engines(self) -> None:
         """Initialize Presidio Analyzer and Anonymizer engines."""
-        nlp_engine = None
-        if self.config.use_spacy_nlp:
-            from presidio_analyzer.nlp_engine import NlpEngineProvider
+        from presidio_analyzer.nlp_engine import NlpEngineProvider
 
-            models = self.config.spacy_nlp_models or [
-                {"lang_code": "fr", "model_name": "fr_core_news_lg"},
-                {"lang_code": "en", "model_name": "en_core_web_lg"},
-            ]
+        models = self.config.spacy_nlp_models or [
+            {"lang_code": "fr", "model_name": "fr_core_news_lg"},
+            {"lang_code": "en", "model_name": "en_core_web_lg"},
+        ]
 
-            nlp_engine = NlpEngineProvider(
-                nlp_configuration={
-                    "nlp_engine_name": "spacy",
-                    "models": models,
-                }
-            ).create_engine()
+        nlp_engine = NlpEngineProvider(
+            nlp_configuration={
+                "nlp_engine_name": "spacy",
+                "models": models,
+            }
+        ).create_engine()
 
         supported_languages = [self.config.language]
 
         # Initialize Analyzer with custom registry
         if self.config.use_presidio_defaults:
             # Use default recognizers
-            if nlp_engine:
-                self._analyzer = AnalyzerEngine(
-                    nlp_engine=nlp_engine, supported_languages=supported_languages
-                )
-            else:
-                self._analyzer = AnalyzerEngine(supported_languages=supported_languages)
+            self._analyzer = AnalyzerEngine(
+                nlp_engine=nlp_engine, supported_languages=supported_languages
+            )
             self._registry = self._analyzer.registry
         else:
             # Start with empty registry
             self._registry = RecognizerRegistry()
             self._registry.load_predefined_recognizers()
-            if nlp_engine:
-                self._analyzer = AnalyzerEngine(
-                    registry=self._registry,
-                    nlp_engine=nlp_engine,
-                    supported_languages=supported_languages,
-                )
-            else:
-                self._analyzer = AnalyzerEngine(
-                    registry=self._registry, supported_languages=supported_languages
-                )
+            self._analyzer = AnalyzerEngine(
+                registry=self._registry,
+                nlp_engine=nlp_engine,
+                supported_languages=supported_languages,
+            )
 
         # Add AI4Privacy recognizer if enabled
         if self.config.use_ai4privacy:
@@ -131,6 +121,9 @@ class PrivacyService:
         # Add EDS-NLP recognizer if enabled
         if self.config.use_edsnlp:
             self._load_edsnlp_recognizer()
+
+        if not self.config.use_spacy_nlp:
+            self._registry.remove_recognizer("SpacyRecognizer")
 
         # Add custom pattern recognizers
         for pattern_config in self.config.custom_patterns:
