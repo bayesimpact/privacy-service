@@ -27,6 +27,11 @@ RUN uv run python -m ensurepip
 RUN uv run python -m spacy download fr_core_news_lg && \
     uv run python -m spacy download en_core_web_lg
 
+RUN --mount=type=secret,id=hf_token \
+    HF_TOKEN=$(cat /run/secrets/hf_token) && \
+    uv run python -c "\
+    import huggingface_hub; \
+    huggingface_hub.login(token='${HF_TOKEN}', new_session=False, add_to_git_credential=False)"
 # Copy application code
 COPY src/ ./src/
 COPY app/ ./app/
