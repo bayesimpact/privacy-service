@@ -51,7 +51,7 @@ class EDSNLPRecognizer(EntityRecognizer):
         self,
         model_name: str = "AP-HP/eds-pseudo-public",
         confidence_threshold: float = 0.5,
-        auto_update: bool = True,
+        auto_update: bool = False,
         supported_entities: list[str] | None = None,
         language: str | None = "fr",
     ):

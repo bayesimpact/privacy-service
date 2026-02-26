@@ -13,8 +13,13 @@ It exposes a simple `PrivacyService` class to detect and anonymize PII in string
 Install from source using `uv`:
 
 ```bash
-UV_HTTP_TIMEOUT=600 uv sync
-uv run python en
+uv sync --extra cpu
+```
+
+If you want to use GPUs:
+
+```bash
+uv sync --extra cu128
 ```
 
 Then run:
@@ -22,20 +27,6 @@ Then run:
 ```bash
 uv pip install -e .
 ```
-
-### Extra dependencies for spaCy models
-
-If you enable spaCy NLP (default), you should install the language models you need. For example:
-
-```bash
-uv run python -m ensurepip
-uv run python -m spacy download fr_core_news_lg
-uv run python -m spacy download en_core_web_lg
-```
-
-You can customize which models are loaded in `config.yaml` (see below).
-
----
 
 ## Quick start
 
@@ -272,6 +263,89 @@ For some integrations, you may want to work with the result models defined in `p
 - `PrivacyConfig`
 
 All of these are standard `@dataclass` classes and work well with JSON serialization.
+
+---
+
+## Docker
+
+The provided `Dockerfile` builds a self-contained image with the FastAPI service.
+All heavy assets (spaCy models, HuggingFace models) are downloaded **at build time** and baked into the image.
+At runtime the container has **no internet access** to HuggingFace (`HF_HUB_OFFLINE=1`).
+
+### Prerequisites
+
+#### 1. Docker with BuildKit enabled
+
+BuildKit is required for the `--secret` flag used to pass the HuggingFace token without leaking it into the image layers.
+
+```bash
+# BuildKit is the default backend since Docker 23.
+# If you are on an older version, enable it explicitly:
+export DOCKER_BUILDKIT=1
+```
+
+#### 2. A Hugging Face account and access token
+
+The `AP-HP/eds-pseudo-public` model is gated and requires authentication.
+
+1. Create a free account at <https://huggingface.co>
+2. Go to <https://huggingface.co/settings/tokens> and create a token with **read** access
+3. Accept the model's terms of use at <https://huggingface.co/AP-HP/eds-pseudo-public>
+
+Export the token in your shell:
+
+```bash
+export HF_TOKEN=hf_xxxxxxxxxxxxxxxxxxxx
+```
+
+#### 3. A `config.yaml` present at the repository root
+
+The Dockerfile copies `config.yaml` into the image (see the `COPY config.yaml ./` step).
+If you do not have one yet, create it from the example template:
+
+```bash
+cp config.example.yaml config.yaml
+```
+
+---
+
+### Build
+
+```bash
+docker build \
+  --secret id=hf_token,env=HF_TOKEN \
+  -t privacy-service:latest \
+  .
+```
+
+The build will:
+
+1. Install all Python dependencies (including `app` group)
+2. Download spaCy models `fr_core_news_lg` and `en_core_web_lg`
+3. Log in to HuggingFace Hub and download:
+   - `ai4privacy/llama-ai4privacy-multilingual-categorical-anonymiser-openpii`
+   - `AP-HP/eds-pseudo-public`
+4. Copy application code and `config.yaml`
+
+The token is passed via a BuildKit secret and is **never written into any image layer**.
+
+---
+
+### Run
+
+```bash
+docker run --rm -p 8000:8000 privacy-service:latest
+```
+
+The API is then available at <http://localhost:8000>.
+
+To mount a custom config at runtime instead of the one baked into the image:
+
+```bash
+docker run --rm -p 8000:8000 \
+  -v "$(pwd)/config.yaml:/app/config.yaml:ro" \
+  privacy-service:latest
+```
 
 ---
 

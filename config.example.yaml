@@ -24,6 +24,11 @@ recognizers:
   # Default: true
   use_presidio_defaults: true
 
+  # Enable EDS-NLP library for French medical PII detection
+  # Uses AP-HP/eds-pseudo-public model for healthcare-specific entities
+  # Default: false
+  use_edsnlp: true
+
   # Enable spaCy NLP engine for better NER
   # Default: true
   use_spacy_nlp: true

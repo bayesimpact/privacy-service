@@ -281,8 +281,6 @@ class PrivacyService:
         # Build operators config
         operators = self._build_operators_config(strategy)
 
-        print(f"Operators: {operators}")
-
         # Anonymize
         anonymizer_result = self._anonymizer.anonymize(
             text=text,
@@ -290,18 +288,24 @@ class PrivacyService:
             operators=operators,
         )
 
-        # Convert to our format
+        # Convert to our format, recovering original PII positions and text.
+        # OperatorResult.start/end refer to the anonymized text; we must infer
+        # the original spans via the analyzer results.
+        original_spans = self._infer_original_spans(
+            text, analyzer_results, anonymizer_result.items
+        )
+        sorted_items = sorted(anonymizer_result.items, key=lambda x: x.start)
         items = []
-        for item in anonymizer_result.items:
+        for item, (orig_start, orig_end, pii_text) in zip(
+            sorted_items, original_spans, strict=False
+        ):
             anon_item = AnonymizationItem(
                 entity_type=item.entity_type,
-                start=item.start,
-                end=item.end,
-                text=item.text or "",
+                start=orig_start,
+                end=orig_end,
+                text=pii_text,
                 operator=item.operator,
-                anonymized_text=text[item.start : item.end]
-                if hasattr(item, "start")
-                else "",
+                anonymized_text=pii_text,
             )
             items.append(anon_item)
 
@@ -310,6 +314,90 @@ class PrivacyService:
             items=items,
             original_text=text,
         )
+
+    def _infer_original_spans(
+        self,
+        original_text: str,
+        analyzer_results: list,
+        operator_items: list,
+    ) -> list[tuple[int, int, str]]:
+        """Recover the original PII start, end, and text for each anonymized item.
+
+        Presidio's ``OperatorResult`` stores ``start``/``end`` as positions in the
+        *anonymized* text.  Recovering original positions relies on two invariants:
+
+        1. **Gap invariant**: text between consecutive replaced spans is identical
+           in both original and anonymized text, so the original start of each item
+           can be computed exactly as::
+
+               orig_start_i = orig_end_{i-1} + (anon_start_i - anon_end_{i-1})
+
+        2. **Entity-type lookup**: once ``orig_start_i`` is known, the closest
+           unmatched ``RecognizerResult`` with the same entity_type gives
+           ``orig_end_i`` and therefore the original PII text.
+
+        This handles conflict resolution correctly: Presidio may discard some
+        ``RecognizerResult`` entries (e.g. contained duplicates), so simple
+        positional zipping of the two lists would produce wrong matches.
+
+        Args:
+            original_text: The text before anonymization.
+            analyzer_results: Presidio ``RecognizerResult`` list; positions are in
+                ``original_text``.
+            operator_items: Presidio ``OperatorResult`` list; positions are in the
+                anonymized text.
+
+        Returns:
+            List of ``(orig_start, orig_end, pii_text)`` tuples in the same order
+            as ``operator_items`` sorted by ascending ``start``.  Falls back to
+            ``(0, 0, "")`` when no matching analyzer result is found.
+        """
+        sorted_items = sorted(operator_items, key=lambda x: x.start)
+
+        # Group RecognizerResults by entity_type, sorted by start, for fast lookup
+        candidates_by_type: dict[str, list] = {}
+        for r in analyzer_results:
+            candidates_by_type.setdefault(r.entity_type, []).append(r)
+        for lst in candidates_by_type.values():
+            lst.sort(key=lambda r: r.start)
+
+        # Track the next unmatched index per entity_type to avoid double-matching
+        next_idx: dict[str, int] = {}
+
+        spans: list[tuple[int, int, str]] = []
+        orig_pos = 0  # end of the previous original entity (0 before the first)
+        anon_pos = 0  # end of the previous replacement in anonymized text
+
+        for item in sorted_items:
+            # Text between the previous entity and this one is unchanged in both
+            # texts, so the gap length is identical → exact orig_start.
+            orig_start = orig_pos + (item.start - anon_pos)
+
+            # Find the closest unmatched RecognizerResult for this entity_type
+            candidates = candidates_by_type.get(item.entity_type, [])
+            start_idx = next_idx.get(item.entity_type, 0)
+
+            best_i: int | None = None
+            best_dist = float("inf")
+            for i in range(start_idx, len(candidates)):
+                dist = abs(candidates[i].start - orig_start)
+                if dist < best_dist:
+                    best_dist = dist
+                    best_i = i
+
+            if best_i is not None:
+                orig_r = candidates[best_i]
+                orig_start = orig_r.start
+                orig_end = orig_r.end
+                next_idx[item.entity_type] = best_i + 1
+            else:
+                orig_end = orig_start  # fallback: empty span
+
+            spans.append((orig_start, orig_end, original_text[orig_start:orig_end]))
+            orig_pos = orig_end
+            anon_pos = item.end
+
+        return spans
 
     def _build_operators_config(
         self, default_strategy: str

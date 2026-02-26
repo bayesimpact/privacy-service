@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "privacy-service"
 version = "0.1.0"
-description = "PII detection and anonymization library with CLI using Microsoft Presidio and ai4privacy"
+description = "PII detection and anonymization library with CLI using Microsoft Presidio, ai4privacy and edsnlp"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -36,6 +36,9 @@ dependencies = [
     "protobuf>=6.33.5",
     "ai4privacy>=0.3.3",
     "edsnlp[ml]>=0.20.0",
+    "pip>=26.0.1",
+    "fr-core-news-lg==3.8.0",
+    "en-core-web-lg==3.8.0",
 ]
 
 
@@ -50,6 +53,36 @@ Homepage = "https://github.com/yourusername/privacy-service"
 Documentation = "https://github.com/yourusername/privacy-service"
 Repository = "https://github.com/yourusername/privacy-service"
 Issues = "https://github.com/yourusername/privacy-service/issues"
+
+# CPU-only torch wheel for local development and CPU Docker builds.
+# For GPU Docker builds pass --build-arg GPU=true; the Dockerfile will then
+# reinstall torch from the standard PyPI index (CUDA-capable) after uv sync.
+
+[tool.uv]
+conflicts = [
+  [
+    { extra = "cpu" },
+    { extra = "cu128" },
+  ],
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", extra = "cpu" },
+    { index = "pytorch-cu128", extra = "cu128" }
+]
+fr-core-news-lg = { url = "https://github.com/explosion/spacy-models/releases/download/fr_core_news_lg-3.8.0/fr_core_news_lg-3.8.0-py3-none-any.whl" }
+en-core-web-lg = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl" }
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/privacy_service"]
@@ -125,7 +158,15 @@ dev = [
     "seaborn>=0.13.2",
     "types-pyyaml>=6.0.12.20250915",
 ]
+
+[project.optional-dependencies]
 app = [
     "fastapi>=0.104.0",
     "uvicorn[standard]>=0.24.0",
+]
+cpu = [
+    "torch>=2.10.0"
+]
+cu128 = [
+    "torch>=2.10.0"
 ]
