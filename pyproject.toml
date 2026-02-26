@@ -121,6 +121,8 @@ dev = [
     "pytest>=8.4.2",
     "pytest-cov>=4.1.0",
     "ruff>=0.15.0",
+    "scikit-learn>=1.7.2",
+    "seaborn>=0.13.2",
     "types-pyyaml>=6.0.12.20250915",
 ]
 app = [
