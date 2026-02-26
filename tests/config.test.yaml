@@ -14,8 +14,13 @@ recognizers:
   # Default: true
   use_ai4privacy: true
 
+  # Enable EDS-NLP library for French medical PII detection
+  # Uses AP-HP/eds-pseudo-public model for healthcare-specific entities
+  # Default: false
+  use_edsnlp: false
+
   # Enable Presidio's default recognizers (email, phone, SSN, etc.)
-  # These are rule-based and work alongside ai4privacy
+  # These are rule-based and work alongside ai4privacy and EDS-NLP
   # Default: true
   use_presidio_defaults: true
 
@@ -34,6 +39,23 @@ recognizers:
     # false: Generic "PRIVATE" label for all PII
     # Default: true
     classify_pii: true
+
+  # EDS-NLP Settings
+  # ----------------
+  edsnlp:
+    # Model name to use for EDS-NLP
+    # Default: AP-HP/eds-pseudo-public (French medical model)
+    model_name: AP-HP/eds-pseudo-public
+
+    # Confidence threshold for PII detection (0.0 to 1.0)
+    # Lower values = more detections but potentially more false positives
+    # Higher values = fewer detections but higher precision
+    # Default: 0.5
+    confidence_threshold: 0.5
+
+    # Auto-update the model when new versions are available
+    # Default: true
+    auto_update: true
 
 # Anonymization Configuration
 # ----------------------------

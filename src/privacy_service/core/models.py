@@ -162,9 +162,13 @@ class PrivacyConfig:
 
     Attributes:
         use_ai4privacy: Whether to use ai4privacy library for PII detection
+        use_edsnlp: Whether to use EDS-NLP library for PII detection
         use_presidio_defaults: Whether to use Presidio default recognizers
         ai4privacy_confidence_threshold: Confidence threshold for ai4privacy
         ai4privacy_classify_pii: Whether to classify PII types or use generic labels
+        edsnlp_model_name: Name of the EDS-NLP model to use
+        edsnlp_confidence_threshold: Confidence threshold for EDS-NLP
+        edsnlp_auto_update: Whether to auto-update the EDS-NLP model
         use_spacy_nlp: Whether to enable spaCy-based NLP in Presidio
         spacy_nlp_models: List of spaCy models (lang_code/model_name) to load
         default_anonymization_strategy: Default anonymization strategy
@@ -174,10 +178,14 @@ class PrivacyConfig:
     """
 
     use_ai4privacy: bool = True
+    use_edsnlp: bool = False
     use_presidio_defaults: bool = True
     use_spacy_nlp: bool = True
     ai4privacy_confidence_threshold: float = 0.01
     ai4privacy_classify_pii: bool = True
+    edsnlp_model_name: str = "AP-HP/eds-pseudo-public"
+    edsnlp_confidence_threshold: float = 0.5
+    edsnlp_auto_update: bool = True
     # By défaut, on privilégie un modèle français, avec un modèle anglais disponible.
     spacy_nlp_models: list[dict[str, str]] = field(
         default_factory=lambda: [

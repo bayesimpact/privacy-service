@@ -156,8 +156,25 @@ def mock_nlp_engine_provider(monkeypatch: pytest.MonkeyPatch) -> None:
         """Minimal stand‑in for Presidio's NLP engine."""
 
         def __init__(self) -> None:
-            # Some Presidio components check this flag.
-            self.is_loaded = True
+            pass
+
+        def is_loaded(self) -> bool:
+            """Check if NLP engine is loaded."""
+            return True
+
+        def get_supported_languages(self) -> list[str]:
+            """Get list of supported languages."""
+            return ["en", "fr"]
+
+        def get_supported_entities(self) -> list[str]:
+            """Get list of supported entity types."""
+            return [
+                "PERSON",
+                "EMAIL_ADDRESS",
+                "PHONE_NUMBER",
+                "LOCATION",
+                "DATE_TIME",
+            ]
 
         def process(
             self, text: str, *args: Any, **kwargs: Any
