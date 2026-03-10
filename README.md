@@ -1,3 +1,8 @@
+# Bayes Impact
+
+Bayes Impact is a technology nonprofit organization building AI recommendation systems for the public interest.
+As part of this work, we curate public and community resource datasets and make them usable by AI agents.
+
 ## Privacy Service
 
 **Privacy Service** is a Python library for **PII detection and anonymization** built on top of **Microsoft Presidio** and **ai4privacy**, with French-first defaults and support for custom regex-based patterns.
