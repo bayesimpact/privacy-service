@@ -17,7 +17,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -49,10 +48,10 @@ format = "privacy_service.tools:format"
 type-check = "privacy_service.tools:type_check"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/privacy-service"
-Documentation = "https://github.com/yourusername/privacy-service"
-Repository = "https://github.com/yourusername/privacy-service"
-Issues = "https://github.com/yourusername/privacy-service/issues"
+Homepage = "https://github.com/bayesimpact/privacy-service"
+Documentation = "https://github.com/bayesimpact/privacy-service"
+Repository = "https://github.com/bayesimpact/privacy-service"
+Issues = "https://github.com/bayesimpact/privacy-service/issues"
 
 # CPU-only torch wheel for local development and CPU Docker builds.
 # For GPU Docker builds pass --build-arg GPU=true; the Dockerfile will then
